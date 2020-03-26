@@ -25,7 +25,7 @@ function addTotalString(lastPaymentInfo, sheet) {
   const ashlynnPays = sum(sheet.getRange(lastPaymentInfo.index + 1, 7, sheet.getLastRow() - lastPaymentInfo.index).getValues().map(value => parseFloat(value)));
   
   const today = Utilities.formatDate(new Date(), "GMT-7", "MM/dd/yyyy");
-  const payment = Math.abs(brandonPays - ashlynnPays);
+  const payment = Math.abs(brandonPays - ashlynnPays).toFixed(2);
   const payee = brandonPays < ashlynnPays ? 'Brandon' : 'Ashlynn';
   const total_string = `${today} VENMO - $${payment} to ${payee}`;
   
